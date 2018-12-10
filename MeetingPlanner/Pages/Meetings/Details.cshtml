@@ -1,0 +1,91 @@
+﻿@page
+@model MeetingPlanner.Pages.Meetings.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Meeting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.OpeningHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.OpeningHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Choirister)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Choirister)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Organist)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Organist)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Invocation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Invocation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Announcements)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Announcements)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Presiding)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Presiding)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Conducting)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Conducting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.WardBusiness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.WardBusiness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.StakeBusiness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.StakeBusiness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.ClosingHymn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.ClosingHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Benediction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Benediction)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Meeting.MeetingID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

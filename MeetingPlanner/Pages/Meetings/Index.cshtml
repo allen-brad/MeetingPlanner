@@ -1,0 +1,102 @@
+﻿@page
+@model MeetingPlanner.Pages.Meetings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].OpeningHymn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Choirister)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Organist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Invocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Announcements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Presiding)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].WardBusiness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].StakeBusiness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].ClosingHymn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Benediction)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Meeting) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningHymn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Choirister)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Announcements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Presiding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WardBusiness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StakeBusiness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingHymn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Benediction)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MeetingID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MeetingID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MeetingID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
