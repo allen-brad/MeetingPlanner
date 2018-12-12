@@ -25,7 +25,7 @@ namespace MeetingPlanner
                 try
                 {
                     var context = services.GetRequiredService<MeetingContext>();
-                    context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

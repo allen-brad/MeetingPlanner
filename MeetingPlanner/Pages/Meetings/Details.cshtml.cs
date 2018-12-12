@@ -27,7 +27,12 @@ namespace MeetingPlanner.Pages.Meetings
                 return NotFound();
             }
 
-            Meeting = await _context.Meeting.FirstOrDefaultAsync(m => m.MeetingID == id);
+            Meeting = await _context.Meeting
+                .Include(m => m.Talks)
+                .Include(m => m.MusicalNumbers)
+                .Include(m=> m.Testimonies)
+                .AsNoTracking()                    
+                .FirstOrDefaultAsync(m => m.MeetingID == id);
 
             if (Meeting == null)
             {

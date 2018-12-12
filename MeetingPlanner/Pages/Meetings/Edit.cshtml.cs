@@ -29,7 +29,7 @@ namespace MeetingPlanner.Pages.Meetings
                 return NotFound();
             }
 
-            Meeting = await _context.Meeting.FirstOrDefaultAsync(m => m.MeetingID == id);
+            Meeting = await _context.Meeting.FindAsync(id);
 
             if (Meeting == null)
             {
@@ -38,37 +38,26 @@ namespace MeetingPlanner.Pages.Meetings
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Meeting).State = EntityState.Modified;
+            var meetingToUpdate = await _context.Meeting.FindAsync(id);
 
-            try
+            // _context.Attach(Meeting).State = EntityState.Modified;
+            if (await TryUpdateModelAsync<Meeting>(
+                meetingToUpdate,
+                "meeting",   // Prefix for form value.
+                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.Conducting,
+                m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness, m => m.Benediction))
             {
                 await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MeetingExists(Meeting.MeetingID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool MeetingExists(int id)
-        {
-            return _context.Meeting.Any(e => e.MeetingID == id);
+            return Page();
         }
     }
 }

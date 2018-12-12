@@ -33,10 +33,19 @@ namespace MeetingPlanner.Pages.Meetings
                 return Page();
             }
 
-            _context.Meeting.Add(Meeting);
-            await _context.SaveChangesAsync();
+            var emptyMeeting = new Meeting();
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<Meeting>(
+                emptyMeeting,
+                "meeting",   // Prefix for form value.
+                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.Conducting,
+                m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness, m => m.Benediction))
+            {
+                _context.Meeting.Add(emptyMeeting);
+                await _context.SaveChangesAsync();         
+                return RedirectToPage("./Index");
+            }
+            return null;
         }
     }
 }

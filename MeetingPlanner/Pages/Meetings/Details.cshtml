@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int}"
 @model MeetingPlanner.Pages.Meetings.DetailsModel
 
 @{
@@ -16,12 +16,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Meeting.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Meeting.OpeningHymn)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Meeting.OpeningHymn)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Meeting.Choirister)
@@ -42,12 +36,6 @@
             @Html.DisplayFor(model => model.Meeting.Invocation)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Meeting.Announcements)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Meeting.Announcements)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Meeting.Presiding)
         </dt>
         <dd>
@@ -58,6 +46,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Meeting.Conducting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.Announcements)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Meeting.Announcements)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Meeting.WardBusiness)
@@ -71,12 +65,90 @@
         <dd>
             @Html.DisplayFor(model => model.Meeting.StakeBusiness)
         </dd>
+
+    
+                <dt>
+                    @Html.DisplayNameFor(model => model.Meeting.Testimonies)
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.Meeting.Testimonies.Description)
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </dd>
+        
         <dt>
-            @Html.DisplayNameFor(model => model.Meeting.ClosingHymn)
+            @Html.DisplayNameFor(model => model.Meeting.Talks)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Meeting.ClosingHymn)
+            <table class="table">
+                <tr>
+                    <th>Speaker</th>
+                    <th>Topic</th>
+                    <th>Assigned</th>
+                    <th>Accepted</th>
+                </tr>
+                @foreach (var item in Model.Meeting.Talks)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Topic)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Assigned)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Accepted)
+                        </td>
+                    </tr>
+                }
+            </table>
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting.MusicalNumbers)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Description</th>
+                    <th>Hymn Number</th>
+                    <th>Title</th>
+                    <th>Performers</th>
+                    <th>Accompaniement</th>
+                </tr>
+                @foreach (var item in Model.Meeting.MusicalNumbers)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HymnNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Performers)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Accompaniement)
+                    </td>
+                </tr>
+                }
+            </table>
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Meeting.Benediction)
         </dt>
