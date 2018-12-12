@@ -13,6 +13,10 @@ namespace MeetingPlanner.Models
         {
         }
 
-        public DbSet<MeetingPlanner.Models.Meeting> Meeting { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<MusicalNumber> MusicalNumber { get; set; }
+        public DbSet<Talk> Talk { get; set; }
+        public DbSet<Testimonies> Testimonies { get; set; }
+
     }
 }

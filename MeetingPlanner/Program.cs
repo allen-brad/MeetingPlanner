@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using MeetingPlanner.Models;
+using MeetingPlanner.Models; //MeetingContext
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection; //CreateScope
 using Microsoft.Extensions.Logging;
 
 namespace MeetingPlanner
