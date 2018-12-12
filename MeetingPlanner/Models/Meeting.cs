@@ -34,7 +34,7 @@ namespace MeetingPlanner.Models
         [Display(Name = "Ward Business")]
         public String WardBusiness { get; set; }
 
-        [Display(Name = "State Business")]
+        [Display(Name = "Stake Business")]
         public String StakeBusiness { get; set; }
 
         [StringLength(50, ErrorMessage = "Beneditcion name cannot be longer than 50 characters.")]

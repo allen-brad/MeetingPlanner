@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MeetingPlanner.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeetingPlanner.Pages.Meetings
 {
+    [Authorize]
+
     public class DeleteModel : PageModel
     {
         private readonly MeetingPlanner.Models.MeetingContext _context;

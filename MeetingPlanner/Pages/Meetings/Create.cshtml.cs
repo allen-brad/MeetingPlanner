@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MeetingPlanner.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeetingPlanner.Pages.Meetings
 {
+    [Authorize]
+
     public class CreateModel : PageModel
     {
         private readonly MeetingPlanner.Models.MeetingContext _context;
