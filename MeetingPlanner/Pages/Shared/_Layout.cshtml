@@ -40,13 +40,16 @@
     </nav>
 
     <partial name="_CookieConsentPartial" />
-
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meeting Planner | Catherine, Erin, Jason &amp; Brad</p>
-        </footer>
+    </div>
+    <div class="container-fluid blue">
+        <div class="container">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Meeting Planner | Catherine, Erin, Jason &amp; Brad</p>
+            </footer>
+        </div>
     </div>
 
     <environment include="Development">
