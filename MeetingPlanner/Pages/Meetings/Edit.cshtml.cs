@@ -54,7 +54,14 @@ namespace MeetingPlanner.Pages.Meetings
                 meetingToUpdate,
                 "meeting",   // Prefix for form value.
                 m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.Conducting,
-                m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness, m => m.Benediction))
+                m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness,
+                m => m.OpenHymn, m => m.SacHymn, m => m.IntHymn, m => m.CloseHymn,
+                m => m.TalkName1, m => m.TalkSubj1,
+                m => m.TalkName2, m => m.TalkSubj2,
+                m => m.TalkName3, m => m.TalkSubj3,
+                m => m.TalkName4, m => m.TalkSubj4,
+                m => m.TalkName5, m => m.TalkSubj5,
+                m => m.Benediction))
             {
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

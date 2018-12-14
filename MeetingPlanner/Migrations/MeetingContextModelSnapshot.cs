@@ -28,7 +28,7 @@ namespace MeetingPlanner.Migrations
                     b.Property<string>("Announcements");
 
                     b.Property<string>("Benediction")
-                        .HasMaxLength(50);
+                        .IsRequired().HasMaxLength(50);
 
                     b.Property<string>("Choirister")
                         .HasMaxLength(50);
@@ -37,20 +37,34 @@ namespace MeetingPlanner.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime>("Date").IsRequired();
 
                     b.Property<string>("Invocation")
-                        .HasMaxLength(50);
+                        .IsRequired().HasMaxLength(50);
 
                     b.Property<string>("Organist")
                         .HasMaxLength(50);
 
                     b.Property<string>("Presiding")
-                        .HasMaxLength(50);
+                        .IsRequired().HasMaxLength(50);
 
                     b.Property<string>("StakeBusiness");
 
                     b.Property<string>("WardBusiness");
+                    b.Property<string>("OpenHymn").IsRequired().HasMaxLength(50); 
+                    b.Property<string>("SacHymn").IsRequired().HasMaxLength(50);
+                    b.Property<string>("IntHymn").HasMaxLength(50);
+                    b.Property<string>("CloseHymn").IsRequired().HasMaxLength(50);
+                    b.Property<string>("TalkName1").HasMaxLength(50);
+                    b.Property<string>("TalkSubj1").HasMaxLength(50);
+                    b.Property<string>("TalkName2").HasMaxLength(50);
+                    b.Property<string>("TalkSubj2").HasMaxLength(50);
+                    b.Property<string>("TalkName3").HasMaxLength(50);
+                    b.Property<string>("TalkSubj3").HasMaxLength(50);
+                    b.Property<string>("TalkName4").HasMaxLength(50);
+                    b.Property<string>("TalkSubj4").HasMaxLength(50);
+                    b.Property<string>("TalkName5").HasMaxLength(50);
+                    b.Property<string>("TalkSubj5").HasMaxLength(50);
 
                     b.HasKey("MeetingID");
 

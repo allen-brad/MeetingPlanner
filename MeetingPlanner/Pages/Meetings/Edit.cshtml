@@ -10,7 +10,7 @@
 <h4>Meeting</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4p">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Meeting.MeetingID" />
@@ -19,6 +19,7 @@
                 <input asp-for="Meeting.Date" class="form-control" />
                 <span asp-validation-for="Meeting.Date" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Meeting.Choirister" class="control-label"></label>
                 <input asp-for="Meeting.Choirister" class="form-control" />
@@ -29,11 +30,7 @@
                 <input asp-for="Meeting.Organist" class="form-control" />
                 <span asp-validation-for="Meeting.Organist" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Meeting.Invocation" class="control-label"></label>
-                <input asp-for="Meeting.Invocation" class="form-control" />
-                <span asp-validation-for="Meeting.Invocation" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Meeting.Presiding" class="control-label"></label>
                 <input asp-for="Meeting.Presiding" class="form-control" />
@@ -44,20 +41,110 @@
                 <input asp-for="Meeting.Conducting" class="form-control" />
                 <span asp-validation-for="Meeting.Conducting" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <hr />
+            <div class="form-large-field">
                 <label asp-for="Meeting.Announcements" class="control-label"></label>
                 <input asp-for="Meeting.Announcements" class="form-control" />
                 <span asp-validation-for="Meeting.Announcements" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Meeting.OpenHymn" class="control-label"></label>
+                <input asp-for="Meeting.OpenHymn" class="form-control" />
+                <span asp-validation-for="Meeting.OpenHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Invocation" class="control-label"></label>
+                <input asp-for="Meeting.Invocation" class="form-control" />
+                <span asp-validation-for="Meeting.Invocation" class="text-danger"></span>
+            </div>
+            <div class="form-large-field">
                 <label asp-for="Meeting.WardBusiness" class="control-label"></label>
                 <input asp-for="Meeting.WardBusiness" class="form-control" />
                 <span asp-validation-for="Meeting.WardBusiness" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-large-field">
                 <label asp-for="Meeting.StakeBusiness" class="control-label"></label>
                 <input asp-for="Meeting.StakeBusiness" class="form-control" />
                 <span asp-validation-for="Meeting.StakeBusiness" class="text-danger"></span>
+            </div>
+            <hr />
+
+
+            <div class="form-group">
+                <h3>Administration of the Sacrament</h3>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.SacHymn" class="control-label"></label>
+                <input asp-for="Meeting.SacHymn" class="form-control" />
+                <span asp-validation-for="Meeting.SacHymn" class="text-danger"></span>
+            </div>
+            <hr />
+            <h3>Speakers</h3>
+            <div class="form-talk">
+                <div class="form-talkName">
+                    <label asp-for="Meeting.TalkName1" class="control-label"></label>
+                    <input asp-for="Meeting.TalkName1" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkName1" class="text-danger"></span>
+                </div>
+                <div class="form-talkSubject">
+                    <label asp-for="Meeting.TalkSubj1" class="control-label"></label>
+                    <input asp-for="Meeting.TalkSubj1" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkSubj1" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-talk">
+                <div class="form-talkName">
+                    <label asp-for="Meeting.TalkName2" class="control-label"></label>
+                    <input asp-for="Meeting.TalkName2" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkName2" class="text-danger"></span>
+                </div>
+                <div class="form-talkSubject">
+                    <label asp-for="Meeting.TalkSubj2" class="control-label"></label>
+                    <input asp-for="Meeting.TalkSubj2" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkSubj2" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-talk">
+                <div class="form-talkName">
+                    <label asp-for="Meeting.TalkName3" class="control-label"></label>
+                    <input asp-for="Meeting.TalkName3" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkName3" class="text-danger"></span>
+                </div>
+                <div class="form-talkSubject">
+                    <label asp-for="Meeting.TalkSubj3" class="control-label"></label>
+                    <input asp-for="Meeting.TalkSubj3" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkSubj3" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-talk">
+                <div class="form-talkName">
+                    <label asp-for="Meeting.TalkName4" class="control-label"></label>
+                    <input asp-for="Meeting.TalkName4" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkName4" class="text-danger"></span>
+                </div>
+                <div class="form-talkSubject">
+                    <label asp-for="Meeting.TalkSubj4" class="control-label"></label>
+                    <input asp-for="Meeting.TalkSubj4" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkSubj4" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-talk">
+                <div class="form-talkName">
+                    <label asp-for="Meeting.TalkName5" class="control-label"></label>
+                    <input asp-for="Meeting.TalkName5" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkName5" class="text-danger"></span>
+                </div>
+                <div class="form-talkSubject">
+                    <label asp-for="Meeting.TalkSubj5" class="control-label"></label>
+                    <input asp-for="Meeting.TalkSubj5" class="form-control" />
+                    <span asp-validation-for="Meeting.TalkSubj5" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Meeting.CloseHymn" class="control-label"></label>
+                <input asp-for="Meeting.CloseHymn" class="form-control" />
+                <span asp-validation-for="Meeting.CloseHymn" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.Benediction" class="control-label"></label>

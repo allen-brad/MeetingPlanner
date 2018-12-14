@@ -23,6 +23,22 @@ namespace MeetingPlanner.Migrations
                     Announcements = table.Column<string>(nullable: true),
                     WardBusiness = table.Column<string>(nullable: true),
                     StakeBusiness = table.Column<string>(nullable: true),
+                    OpenHymn = table.Column<string>(nullable: true),
+                    SacHymn = table.Column<string>(nullable: true),
+                    IntHymn = table.Column<string>(nullable: true),
+                    CloseHymn = table.Column<string>(nullable: true),
+                    TalkName1 = table.Column<string>(nullable: true),
+                    TalkSubj1 = table.Column<string>(nullable: true),
+                    TalkName2 = table.Column<string>(nullable: true),
+                    TalkSubj2 = table.Column<string>(nullable: true),
+                    TalkName3 = table.Column<string>(nullable: true),
+                    TalkSubj3 = table.Column<string>(nullable: true),
+                    TalkName4 = table.Column<string>(nullable: true),
+                    TalkSubj4 = table.Column<string>(nullable: true),
+                    TalkName5 = table.Column<string>(nullable: true),
+                    TalkSubj5 = table.Column<string>(nullable: true),
+
+
                     Benediction = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
