@@ -87,9 +87,7 @@ namespace MeetingPlanner.Models
         public String Benediction { get; set; }
 
 
-        public ICollection<MusicalNumber> MusicalNumbers { get; set; }
-        public ICollection<Talk> Talks { get; set; }
-        public virtual Testimonies Testimonies { get; set; }
+
 
     }
 }

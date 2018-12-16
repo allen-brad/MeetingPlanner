@@ -31,9 +31,7 @@ namespace MeetingPlanner.Pages.Meetings
             }
 
             Meeting = await _context.Meeting
-                .Include(m => m.Talks)
-                .Include(m => m.MusicalNumbers)
-                .Include(m=> m.Testimonies)
+ 
                 .AsNoTracking()                    
                 .FirstOrDefaultAsync(m => m.MeetingID == id);
 

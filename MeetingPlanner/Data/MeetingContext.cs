@@ -14,9 +14,7 @@ namespace MeetingPlanner.Models
         }
 
         public DbSet<Meeting> Meeting { get; set; }
-        public DbSet<MusicalNumber> MusicalNumber { get; set; }
-        public DbSet<Talk> Talk { get; set; }
-        public DbSet<Testimonies> Testimonies { get; set; }
+
 
     }
 }
