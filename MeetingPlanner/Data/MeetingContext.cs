@@ -14,7 +14,7 @@ namespace MeetingPlanner.Models
         }
 
         public DbSet<Meeting> Meeting { get; set; }
-
+        public DbSet<Bishopric> Bishopric { get; set; }
 
     }
 }

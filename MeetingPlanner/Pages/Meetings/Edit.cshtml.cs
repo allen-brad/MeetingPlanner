@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MeetingPlanner.Pages.Meetings
 {
     [Authorize]
-    public class EditModel : PageModel
+    public class EditModel : BishopricNamePageModel//PageModel
     {
         private readonly MeetingPlanner.Models.MeetingContext _context;
 
@@ -31,12 +31,14 @@ namespace MeetingPlanner.Pages.Meetings
                 return NotFound();
             }
 
-            Meeting = await _context.Meeting.FindAsync(id);
+            Meeting = await _context.Meeting//.FindAsync(id);
+                .Include(c => c.Bishopric).FirstOrDefaultAsync(m => m.MeetingID == id);
 
             if (Meeting == null)
             {
                 return NotFound();
             }
+            PopulateConductingDropDownList(_context);
             return Page();
         }
 
@@ -66,6 +68,7 @@ namespace MeetingPlanner.Pages.Meetings
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
+            PopulateConductingDropDownList(_context, meetingToUpdate.Conducting);
             return Page();
         }
     }

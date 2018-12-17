@@ -13,7 +13,7 @@ namespace MeetingPlanner.Pages.Meetings
 {
     [Authorize]
 
-    public class CreateModel : PageModel
+    public class CreateModel : BishopricNamePageModel//PageModel
     {
         private readonly MeetingPlanner.Models.MeetingContext _context;
 
@@ -25,7 +25,7 @@ namespace MeetingPlanner.Pages.Meetings
         public Meeting Meeting { get; set; }
         public IActionResult OnGet()
         {
-
+            PopulateConductingDropDownList(_context);
             return Page();
         }
 
@@ -59,7 +59,11 @@ namespace MeetingPlanner.Pages.Meetings
                 await _context.SaveChangesAsync();         
                 return RedirectToPage("./Index");
             }
-            return null;
+
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateConductingDropDownList(_context, emptyMeeting.Conducting);
+            //return null;
+            return Page();
         }
     }
 }

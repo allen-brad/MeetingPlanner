@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using MeetingPlanner.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace MeetingPlanner.Pages.Meetings
+namespace MeetingPlanner.Pages.BishopricMembers
 {
     [Authorize]
-    public class IndexModel : BishopricNamePageModel//PageModel
+    public class IndexModel : PageModel
     {
         private readonly MeetingPlanner.Models.MeetingContext _context;
 
@@ -20,19 +20,11 @@ namespace MeetingPlanner.Pages.Meetings
             _context = context;
         }
 
-        public IList<Meeting> Meeting { get;set; }
+        public IList<Bishopric> Bishopric { get;set; }
 
         public async Task OnGetAsync()
         {
-            //Bishopric = await _context.Bishopric.FirstOrDefaultAsync(m => m.BishopricID == id);
-            Meeting = await _context.Meeting
-                .Include(m => m.Bishopric)
-                
-                .AsNoTracking()
-                .ToListAsync();
-            //PopulateConductingDropDownList(_context);
-            
-            
+            Bishopric = await _context.Bishopric.ToListAsync();
         }
     }
 }

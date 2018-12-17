@@ -36,32 +36,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Meeting) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Presiding)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Conducting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Announcements)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WardBusiness)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StakeBusiness)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.MeetingID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MeetingID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MeetingID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+        @foreach (var item in Model.Meeting)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presiding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conducting)
+                    
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Announcements)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WardBusiness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StakeBusiness)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.MeetingID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.MeetingID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.MeetingID">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
 </table>

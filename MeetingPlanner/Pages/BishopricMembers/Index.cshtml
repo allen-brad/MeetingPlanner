@@ -1,0 +1,43 @@
+﻿@page
+@model MeetingPlanner.Pages.BishopricMembers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Members who may conduct Sacrament Meetings</h2>
+
+<p>
+    <a asp-page="Create">Add New Member</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bishopric[0].name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Bishopric[0].position)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bishopric) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BishopricID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BishopricID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BishopricID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+﻿@page
+@model MeetingPlanner.Pages.BishopricMembers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Member Details</h2>
+
+<div>
+    <h4>Member who may conduct Sacrament Meetings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bishopric.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bishopric.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bishopric.position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bishopric.position)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Bishopric.BishopricID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

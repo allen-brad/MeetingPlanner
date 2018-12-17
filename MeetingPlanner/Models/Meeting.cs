@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -85,7 +86,8 @@ namespace MeetingPlanner.Models
         [Required]
         [StringLength(50, ErrorMessage = "Beneditcion name cannot be longer than 50 characters.")]
         public String Benediction { get; set; }
-
+        //public int BishopricID { get; set; }
+        public Bishopric Bishopric { get; set; }
 
 
 
