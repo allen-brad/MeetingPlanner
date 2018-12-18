@@ -25,13 +25,24 @@ namespace MeetingPlanner.Pages.Meetings
         public string DateSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
-        public IList<Meeting> Meeting { get;set; }
+        public PaginatedList<Meeting> Meeting { get;set; }
 
-        public async Task OnGetAsync(string sortOrder, string searchString)
+        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
             PresidingSort = String.IsNullOrEmpty(sortOrder) ? "presiding_desc" : "";
             ConductingSort = String.IsNullOrEmpty(sortOrder) ? "conducting_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            CurrentSort = sortOrder;
+
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             CurrentFilter = searchString;
 
             IQueryable<Meeting> meetingIQ = from m in _context.Meeting
@@ -58,12 +69,12 @@ namespace MeetingPlanner.Pages.Meetings
                     break;
             }
 
-            //Bishopric = await _context.Bishopric.FirstOrDefaultAsync(m => m.BishopricID == id);
-            Meeting = await meetingIQ
-                .Include(m => m.Bishopric)
+            int pageSize = 5;
 
-                .AsNoTracking()
-                .ToListAsync();
+            //Bishopric = await _context.Bishopric.FirstOrDefaultAsync(m => m.BishopricID == id);
+            Meeting = await PaginatedList<Meeting>.CreateAsync(meetingIQ
+                .Include(m => m.Bishopric)
+                .AsNoTracking(), pageIndex ?? 1, pageSize);
             //PopulateConductingDropDownList(_context);
             
             
