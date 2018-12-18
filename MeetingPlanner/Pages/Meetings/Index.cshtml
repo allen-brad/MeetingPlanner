@@ -26,17 +26,17 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Meeting[0].Date)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.PresidingSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PresidingSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Meeting[0].Presiding)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.ConductingSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ConductingSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
                 </a>
             </th>
@@ -64,8 +64,8 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Conducting)
-                    
-                    
+
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Announcements)
@@ -82,6 +82,26 @@
                     <a asp-page="./Delete" asp-route-id="@item.MeetingID">Delete</a>
                 </td>
             </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Meeting.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Meeting.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Meeting.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Meeting.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
