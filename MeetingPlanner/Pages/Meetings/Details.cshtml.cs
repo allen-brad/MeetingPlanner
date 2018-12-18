@@ -32,7 +32,8 @@ namespace MeetingPlanner.Pages.Meetings
 
             Meeting = await _context.Meeting
  
-                .AsNoTracking()                    
+                .AsNoTracking()
+                
                 .FirstOrDefaultAsync(m => m.MeetingID == id);
 
             if (Meeting == null)
