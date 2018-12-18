@@ -4,14 +4,16 @@ using MeetingPlanner.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MeetingPlanner.Migrations
 {
     [DbContext(typeof(MeetingContext))]
-    partial class MeetingContextModelSnapshot : ModelSnapshot
+    [Migration("20181218015344_Jason")]
+    partial class Jason
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,12 +52,16 @@ namespace MeetingPlanner.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("BishopricID");
+                    b.Property<int?>("BishopricID");
 
                     b.Property<string>("Choirister")
                         .HasMaxLength(50);
 
                     b.Property<string>("CloseHymn")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Conducting")
                         .IsRequired()
                         .HasMaxLength(50);
 
@@ -127,9 +133,8 @@ namespace MeetingPlanner.Migrations
             modelBuilder.Entity("MeetingPlanner.Models.Meeting", b =>
                 {
                     b.HasOne("MeetingPlanner.Models.Bishopric", "Bishopric")
-                        .WithMany("Meetings")
-                        .HasForeignKey("BishopricID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("BishopricID");
                 });
 #pragma warning restore 612, 618
         }

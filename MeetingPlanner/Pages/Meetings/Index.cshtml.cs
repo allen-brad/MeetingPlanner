@@ -39,7 +39,7 @@ namespace MeetingPlanner.Pages.Meetings
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                meetingIQ = meetingIQ.Where(m => m.Announcements.Contains(searchString) || m.Conducting.Contains(searchString) || m.Presiding.Contains(searchString) || m.WardBusiness.Contains(searchString) || m.StakeBusiness.Contains(searchString));
+                meetingIQ = meetingIQ.Where(m => m.Announcements.Contains(searchString) || m.Presiding.Contains(searchString) || m.WardBusiness.Contains(searchString) || m.StakeBusiness.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -49,13 +49,7 @@ namespace MeetingPlanner.Pages.Meetings
                     break;
                 case "Presiding":
                     meetingIQ = meetingIQ.OrderBy(m => m.Presiding);
-                    break;
-                case "conducting_desc":
-                    meetingIQ = meetingIQ.OrderByDescending(m => m.Conducting);
-                    break;
-                case "Conducting":
-                    meetingIQ = meetingIQ.OrderBy(m => m.Conducting);
-                    break;
+                    break;          
                 case "date_desc":
                     meetingIQ = meetingIQ.OrderByDescending(m => m.Date);
                     break;

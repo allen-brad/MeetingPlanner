@@ -36,9 +36,7 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.ConductingSort">
-                    @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
-                </a>
+                    @Html.DisplayNameFor(model => model.Meeting[0].Bishopric.name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Meeting[0].Announcements)
@@ -63,9 +61,7 @@
                     @Html.DisplayFor(modelItem => item.Presiding)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Conducting)
-                    
-                    
+                    @Html.DisplayFor(modelItem => item.Bishopric.name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Announcements)
