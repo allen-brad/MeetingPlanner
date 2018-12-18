@@ -36,7 +36,7 @@
                 </a>
             </th>
             <th>
-                    @Html.DisplayNameFor(model => model.Meeting[0].Bishopric.name)
+                @Html.DisplayNameFor(model => model.Meeting[0].Bishopric.name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Meeting[0].Announcements)
@@ -78,6 +78,26 @@
                     <a asp-page="./Delete" asp-route-id="@item.MeetingID">Delete</a>
                 </td>
             </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Meeting.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Meeting.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Meeting.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Meeting.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
