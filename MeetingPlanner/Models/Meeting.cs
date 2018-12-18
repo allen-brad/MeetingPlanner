@@ -10,6 +10,7 @@ namespace MeetingPlanner.Models
     public class Meeting
     {
         public int MeetingID { get; set; }
+
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Meeting Date")]
@@ -18,30 +19,36 @@ namespace MeetingPlanner.Models
 
         [StringLength(50, ErrorMessage = "Choirister name cannot be longer than 50 characters.")]
         public String Choirister { get; set; }
+
         [Display(Name = "Organist/Pianist")]
         [StringLength(50, ErrorMessage = "Organist name cannot be longer than 50 characters.")]    
         public String Organist { get; set; }
+
         [Required]
         [StringLength(50, ErrorMessage = "Invocation name cannot be longer than 50 characters.")]
         public String Invocation { get; set; }
+
         [Required]
         [StringLength(50, ErrorMessage = "Presiding name cannot be longer than 50 characters.")]
         public String Presiding { get; set; }
 
-        [Required]
-        [StringLength(50, ErrorMessage = "Conducting name cannot be longer than 50 characters.")]
-        public String Conducting { get; set; }
+        //[Required]
+        //[StringLength(50, ErrorMessage = "Conducting name cannot be longer than 50 characters.")]
+        //public String Conducting { get; set; }
 
         public String Announcements { get; set; }
+
         [Display(Name = "Ward Business")]
         public String WardBusiness { get; set; }
 
         [Display(Name = "Stake Business")]
         public String StakeBusiness { get; set; }
+
         [Required]
         [Display(Name = "Opening Hymn")]
         [StringLength(50, ErrorMessage = "Opening Hymn name cannot be longer than 50 characters.")]
         public String OpenHymn { get; set; }
+
         [Required]
         [Display(Name = "Sacrament Hymn")]
         [StringLength(50, ErrorMessage = "Sacrament Hymn name cannot be longer than 50 characters.")]
@@ -86,7 +93,8 @@ namespace MeetingPlanner.Models
         [Required]
         [StringLength(50, ErrorMessage = "Beneditcion name cannot be longer than 50 characters.")]
         public String Benediction { get; set; }
-        //public int BishopricID { get; set; }
+
+        public int BishopricID { get; set; }
         public Bishopric Bishopric { get; set; }
 
 

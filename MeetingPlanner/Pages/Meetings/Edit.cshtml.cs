@@ -55,7 +55,7 @@ namespace MeetingPlanner.Pages.Meetings
             if (await TryUpdateModelAsync<Meeting>(
                 meetingToUpdate,
                 "meeting",   // Prefix for form value.
-                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.Conducting,
+                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.BishopricID, 
                 m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness,
                 m => m.OpenHymn, m => m.SacHymn, m => m.IntHymn, m => m.CloseHymn,
                 m => m.TalkName1, m => m.TalkSubj1,
@@ -68,7 +68,7 @@ namespace MeetingPlanner.Pages.Meetings
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
-            PopulateConductingDropDownList(_context, meetingToUpdate.Conducting);
+            //PopulateConductingDropDownList(_context, meetingToUpdate.Conducting);
             return Page();
         }
     }

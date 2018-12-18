@@ -11,9 +11,7 @@ namespace MeetingPlanner.Models
         
         public int BishopricID { get; set; }
 
-
-
-        [Display(Name = "Name")]
+        [Display(Name = "Conducting")]
         [StringLength(50, ErrorMessage = "Name can not be more than 50 characters. ")]
         [Required]
         public String name { get; set; }
@@ -22,5 +20,8 @@ namespace MeetingPlanner.Models
         [StringLength(50, ErrorMessage = "Position can not be more than 50 characters. ")]
         [Required]
         public String position { get; set; }
+
+        public ICollection<Meeting> Meetings { get; set; }
+
     }
 }

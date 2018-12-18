@@ -45,7 +45,7 @@ namespace MeetingPlanner.Pages.Meetings
             if (await TryUpdateModelAsync<Meeting>(
                 emptyMeeting,
                 "meeting",   // Prefix for form value.
-                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.Conducting,
+                m => m.Date, m => m.Choirister, m => m.Organist, m => m.Invocation, m => m.Presiding, m => m.BishopricID,
                 m => m.Announcements, m => m.WardBusiness, m => m.StakeBusiness,
                 m => m.OpenHymn, m => m.SacHymn, m => m.IntHymn, m => m.CloseHymn,
                 m => m.TalkName1, m => m.TalkSubj1,
@@ -61,7 +61,7 @@ namespace MeetingPlanner.Pages.Meetings
             }
 
             // Select DepartmentID if TryUpdateModelAsync fails.
-            PopulateConductingDropDownList(_context, emptyMeeting.Conducting);
+            //PopulateConductingDropDownList(_context, emptyMeeting.Conducting);
             //return null;
             return Page();
         }

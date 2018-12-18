@@ -33,6 +33,7 @@ namespace MeetingPlanner.Pages.Meetings
             }
 
             Meeting = await _context.Meeting
+                .Include(m => m.Bishopric)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.MeetingID == id);
 
