@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeetingPlanner.Migrations
 {
     [DbContext(typeof(MeetingContext))]
-    [Migration("20181216235305_Initial")]
+    [Migration("20181218162012_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,16 +52,12 @@ namespace MeetingPlanner.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int?>("BishopricID");
+                    b.Property<int>("BishopricID");
 
                     b.Property<string>("Choirister")
                         .HasMaxLength(50);
 
                     b.Property<string>("CloseHymn")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Conducting")
                         .IsRequired()
                         .HasMaxLength(50);
 
@@ -133,8 +129,9 @@ namespace MeetingPlanner.Migrations
             modelBuilder.Entity("MeetingPlanner.Models.Meeting", b =>
                 {
                     b.HasOne("MeetingPlanner.Models.Bishopric", "Bishopric")
-                        .WithMany()
-                        .HasForeignKey("BishopricID");
+                        .WithMany("Meetings")
+                        .HasForeignKey("BishopricID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

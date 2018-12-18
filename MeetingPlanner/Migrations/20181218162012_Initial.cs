@@ -33,7 +33,6 @@ namespace MeetingPlanner.Migrations
                     Organist = table.Column<string>(maxLength: 50, nullable: true),
                     Invocation = table.Column<string>(maxLength: 50, nullable: false),
                     Presiding = table.Column<string>(maxLength: 50, nullable: false),
-                    Conducting = table.Column<string>(maxLength: 50, nullable: false),
                     Announcements = table.Column<string>(nullable: true),
                     WardBusiness = table.Column<string>(nullable: true),
                     StakeBusiness = table.Column<string>(nullable: true),
@@ -52,7 +51,7 @@ namespace MeetingPlanner.Migrations
                     TalkName5 = table.Column<string>(maxLength: 50, nullable: true),
                     TalkSubj5 = table.Column<string>(maxLength: 50, nullable: true),
                     Benediction = table.Column<string>(maxLength: 50, nullable: false),
-                    BishopricID = table.Column<int>(nullable: true)
+                    BishopricID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +61,7 @@ namespace MeetingPlanner.Migrations
                         column: x => x.BishopricID,
                         principalTable: "Bishopric",
                         principalColumn: "BishopricID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
