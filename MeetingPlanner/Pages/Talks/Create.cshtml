@@ -1,0 +1,69 @@
+﻿@page
+@model MeetingPlanner.Pages.Talks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Talk</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Talk.MeetingID" class="control-label"></label>
+                <select asp-for="Talk.MeetingID" class ="form-control" asp-items="ViewBag.MeetingID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Talk.SortOrder" class="control-label"></label>
+                <input asp-for="Talk.SortOrder" class="form-control" />
+                <span asp-validation-for="Talk.SortOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Talk.SpeakerFirstName" class="control-label"></label>
+                <input asp-for="Talk.SpeakerFirstName" class="form-control" />
+                <span asp-validation-for="Talk.SpeakerFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Talk.SpeakerLastName" class="control-label"></label>
+                <input asp-for="Talk.SpeakerLastName" class="form-control" />
+                <span asp-validation-for="Talk.SpeakerLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Talk.Topic" class="control-label"></label>
+                <input asp-for="Talk.Topic" class="form-control" />
+                <span asp-validation-for="Talk.Topic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Talk.Assigned" /> @Html.DisplayNameFor(model => model.Talk.Assigned)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Talk.Accepted" /> @Html.DisplayNameFor(model => model.Talk.Accepted)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

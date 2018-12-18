@@ -40,10 +40,10 @@ namespace MeetingPlanner.Models
         [StringLength(50, ErrorMessage = "Beneditcion name cannot be longer than 50 characters.")]
         public String Benediction { get; set; }
 
-
+        [Display(Name = "Musical Numbers")]
         public ICollection<MusicalNumber> MusicalNumbers { get; set; }
         public ICollection<Talk> Talks { get; set; }
-        public virtual Testimonies Testimonies { get; set; }
+        public Testimonies Testimonies { get; set; }
 
     }
 }

@@ -11,6 +11,8 @@ namespace MeetingPlanner.Models
         public int TalkID { get; set; }
 
         public int MeetingID { get; set; }
+
+        [Display(Name = "Sort Order")]
         public int SortOrder { get; set; }
 
         [Required]
