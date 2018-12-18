@@ -10,15 +10,31 @@
 <p>
     <a asp-page="Create">Add New Member</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name or position:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Bishopric[0].name)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Bishopric[0].name)
+                </a>
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.Bishopric[0].position)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PositionSort">
+                    @Html.DisplayNameFor(model => model.Bishopric[0].position)
+                </a>
             </th>
             <th></th>
         </tr>

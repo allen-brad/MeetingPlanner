@@ -20,11 +20,44 @@ namespace MeetingPlanner.Pages.BishopricMembers
             _context = context;
         }
 
+        public string PositionSort { get; set; }
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
         public IList<Bishopric> Bishopric { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
-            Bishopric = await _context.Bishopric.ToListAsync();
+            PositionSort = String.IsNullOrEmpty(sortOrder) ? "position_desc" : "";
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            CurrentFilter = searchString;
+
+            IQueryable<Bishopric> bishopricIQ = from b in _context.Bishopric
+                                                select b;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                bishopricIQ = bishopricIQ.Where(b => b.name.Contains(searchString)
+                || b.position.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    bishopricIQ = bishopricIQ.OrderByDescending(b => b.name);
+                    break;
+                case "position_desc":
+                    bishopricIQ = bishopricIQ.OrderByDescending(b => b.position);
+                    break;
+                case "position":
+                    bishopricIQ = bishopricIQ.OrderBy(b => b.position);
+                    break;
+                default:
+                    bishopricIQ = bishopricIQ.OrderBy(b => b.name);
+                    break;
+            }
+
+            Bishopric = await bishopricIQ.ToListAsync();
         }
     }
 }

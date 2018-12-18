@@ -11,17 +11,34 @@
     <a asp-page="Create">Add a New Meeting</a>
 </p>
 <hr />
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by contents:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].Date)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Meeting[0].Date)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].Presiding)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PresidingSort">
+                    @Html.DisplayNameFor(model => model.Meeting[0].Presiding)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ConductingSort">
+                    @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Meeting[0].Announcements)
